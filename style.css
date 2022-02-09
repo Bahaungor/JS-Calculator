@@ -94,7 +94,7 @@ body{
     box-shadow: 0 0 10px rgb(158, 158, 158);
 }
 
-.calculator-special.equals{
+.calculator-special.equals, .calculator-special.result{
     background-color: rgb(66, 133, 244);
     color: white;
     font-weight: 700;

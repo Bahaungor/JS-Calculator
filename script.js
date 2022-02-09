@@ -8,6 +8,7 @@ const buttons = document.querySelectorAll(".calculator-button");
 const deleteButton = document.querySelector(".calculator-special.delete");
 const decimalButton = document.querySelector(".calculator-special.decimal");
 const clearButton = document.querySelector(".calculator-special.clear");
+const ansButton = document.querySelector(".calculator-special.result");
 
 let number1 = "";
 let number2 = "";
@@ -123,6 +124,12 @@ resultsDisplay.textContent = "";
 operatorDisplay.textContent = "";
 }
 
+ansButton.addEventListener("click", bringResult)
+function bringResult(){
+    number1 = result;
+    number1Display.textContent = number1;
+}
+
 function keyboardConfig(e){
     if(e.key == 0 ||
        e.key == 1 ||
@@ -147,6 +154,8 @@ function keyboardConfig(e){
     if(e.key == "Delete") deleteNumber();
 
     if(e.key == ",") addDecimals();
+
+    if(e.key == "PageDown") bringResult();
 }
 
 function fixDecimals(number){
