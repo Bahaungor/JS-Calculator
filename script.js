@@ -150,6 +150,7 @@ function keyboardConfig(e){
 }
 
 function fixDecimals(number){
+    if(number=="0") return number;
     if(!number) return;
     return number = parseFloat(number.toFixed(5));
 }
