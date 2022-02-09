@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Calculator</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js" defer></script>
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="calculator">
+            <div class="calculator-glass">
+                <div class="results"></div>
+                <div class="temp-values">
+                    <div class="number1-display"></div>
+                    <div class="operator-value"></div>
+                    <div class="number2-display"></div>
+                </div>
+            </div>
+            <div class="calculator-buttons-container">
+                <div class="calculator-button-row">
+                    <div class="calculator-special clear operator" data-key="End">CE</div>
+                    <div class="calculator-special delete operator" data-key="Delete">Del</div>
+                </div>
+                <div class="calculator-button-row">
+                    <div class="calculator-button seven" data-key="7">7</div>
+                    <div class="calculator-button eight" data-key="8">8</div>
+                    <div class="calculator-button nine" data-key="9">9</div>
+                    <div class="calculator-operator divide operator" data-key="/" data-symbol="÷">/</div>
+                </div>
+                <div class="calculator-button-row">
+                    <div class="calculator-button four" data-key="4">4</div>
+                    <div class="calculator-button five" data-key="5">5</div>
+                    <div class="calculator-button six" data-key="6">6</div>
+                    <div class="calculator-operator multiply operator" data-key="*" data-symbol="x">X</div>
+                </div>
+                <div class="calculator-button-row">
+                    <div class="calculator-button one" data-key="1">1</div>
+                    <div class="calculator-button two" data-key="2">2</div>
+                    <div class="calculator-button three" data-key="3">3</div>
+                    <div class="calculator-operator minus operator" data-key="-" data-symbol="-">—</div>
+                </div>
+                <div class="calculator-button-row">
+                    <div class="calculator-button zero" data-key="0">0</div>
+                    <div class="calculator-special decimal" data-key=".">.</div>
+                    <div class="calculator-special equals">=</div>
+                    <div class="calculator-operator plus operator" data-key="+" data-symbol="+">+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
