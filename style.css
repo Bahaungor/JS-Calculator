@@ -11,6 +11,7 @@ body{
 }
 
 .calculator-container{
+    padding: 60px 50px;
     background-color: ghostwhite;
     height: 100vh;
     display: flex;
@@ -21,7 +22,6 @@ body{
 .calculator{
     border: .5px solid lightgrey;
     border-radius: 10px;
-    margin: 30px 30px;
     padding: 15px 15px;
     max-width: 450px;
     min-width: 250px;
