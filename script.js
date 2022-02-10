@@ -22,7 +22,20 @@ enter.addEventListener("click", calculator);
 addEventListener("keydown", keyboardConfig);
 
 function clickOperator(e){
-    if(!number1){
+    if (!number1 && result){
+        console.log("number1 doesn't exist but answer exist scenario")
+        number1 = result;
+        number1Display.textContent = fixDecimals(number1);
+        currentOperator = e.target.dataset.key || e.key;
+        if(currentOperator=="*"){
+            operatorSymbol="x";
+        } else if(currentOperator=="/"){
+            operatorSymbol="÷";
+        } else {
+            operatorSymbol = currentOperator;
+        }
+        operatorDisplay.textContent = operatorSymbol;
+    } else if(!number1){
         console.log("number1 doesn't exist senaryo");
         number1 = 0;
         number1Display.textContent = number1;
@@ -126,8 +139,14 @@ operatorDisplay.textContent = "";
 
 ansButton.addEventListener("click", bringResult)
 function bringResult(){
-    number1 = result;
-    number1Display.textContent = number1;
+    if (!result) return;
+    if(!number1){
+        number1 = result;
+        number1Display.textContent = fixDecimals(number1);
+    } else {
+        number2 = result;
+        number2Display.textContent = fixDecimals(number2);
+    }
 }
 
 function keyboardConfig(e){
