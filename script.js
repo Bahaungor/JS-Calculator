@@ -16,49 +16,26 @@ let result;
 let currentOperator;
 let operatorSymbol;
 
-buttons.forEach(button => button.addEventListener("click", clickNumber));
-operators.forEach(operator => operator.addEventListener("click", clickOperator))
-enter.addEventListener("click", calculator);
-addEventListener("keydown", keyboardConfig);
-
 function clickOperator(e){
     if (!number1 && result){
         console.log("number1 doesn't exist but answer exist scenario")
         number1 = result;
         number1Display.textContent = fixDecimals(number1);
         currentOperator = e.target.dataset.key || e.key;
-        if(currentOperator=="*"){
-            operatorSymbol="x";
-        } else if(currentOperator=="/"){
-            operatorSymbol="÷";
-        } else {
-            operatorSymbol = currentOperator;
-        }
+        fixOperatorSymbol();
         operatorDisplay.textContent = operatorSymbol;
     } else if(!number1){
         console.log("number1 doesn't exist senaryo");
         number1 = 0;
         number1Display.textContent = number1;
         currentOperator = e.target.dataset.key || e.key;
-        if(currentOperator=="*"){
-            operatorSymbol="x";
-        } else if(currentOperator=="/"){
-            operatorSymbol="÷";
-        } else {
-            operatorSymbol = currentOperator;
-        }
+        fixOperatorSymbol();
         operatorDisplay.textContent = operatorSymbol;
         return;
     } else if(number1 && !number2){
         console.log("number1 exist but not number2 senaryo");
         currentOperator = e.target.dataset.key || e.key;
-        if(currentOperator=="*"){
-            operatorSymbol="x";
-        } else if(currentOperator=="/"){
-            operatorSymbol="÷";
-        } else {
-            operatorSymbol = currentOperator;
-        }
+        fixOperatorSymbol();
         operatorDisplay.textContent = operatorSymbol;
         return;
     } else if(number1 && number2) {
@@ -105,7 +82,6 @@ function calculator(){
     number1Display.textContent = fixDecimals(number1);
 }
 
-deleteButton.addEventListener("click", deleteNumber)
 function deleteNumber(){
     if(number2){
         number2 = number2+"";
@@ -118,7 +94,6 @@ function deleteNumber(){
     }
 }
 
-decimalButton.addEventListener("click", addDecimals)
 function addDecimals(){
     if(number2 && !number2.includes(".")){
         number2 += ".";
@@ -129,19 +104,17 @@ function addDecimals(){
     } else return;
 }
 
-clearButton.addEventListener("click", clearAll)
 function clearAll(){
-number1 = "";
-number2 = "";
-result = 0;
-currentOperator = "";
-number1Display.textContent = "";
-number2Display.textContent = "";
-resultsDisplay.textContent = "";
-operatorDisplay.textContent = "";
+    number1 = "";
+    number2 = "";
+    result = 0;
+    currentOperator = "";
+    number1Display.textContent = "";
+    number2Display.textContent = "";
+    resultsDisplay.textContent = "";
+    operatorDisplay.textContent = "";
 }
 
-ansButton.addEventListener("click", bringResult)
 function bringResult(){
     if (!result) return;
     if(!number1){
@@ -164,7 +137,7 @@ function keyboardConfig(e){
        e.key == 7 || 
        e.key == 8 || 
        e.key == 9) clickNumber(e);
-    
+
     if(e.key == "+" ||
        e.key == "-" ||
        e.key == "/" ||
@@ -186,3 +159,22 @@ function fixDecimals(number){
     if(!number) return;
     return number = parseFloat(number.toFixed(5));
 }
+
+function fixOperatorSymbol(){
+    if(currentOperator=="*"){
+        operatorSymbol="x";
+    } else if(currentOperator=="/"){
+        operatorSymbol="÷";
+    } else {
+        operatorSymbol = currentOperator;
+    }
+}
+
+buttons.forEach(button => button.addEventListener("click", clickNumber));
+operators.forEach(operator => operator.addEventListener("click", clickOperator))
+enter.addEventListener("click", calculator);
+ansButton.addEventListener("click", bringResult)
+deleteButton.addEventListener("click", deleteNumber)
+decimalButton.addEventListener("click", addDecimals)
+clearButton.addEventListener("click", clearAll)
+addEventListener("keydown", keyboardConfig);
