@@ -78,8 +78,8 @@ function calculator(){
     currentOperator = "";
     operatorDisplay.textContent = currentOperator;
     resultsDisplay.textContent = fixDecimals(result);
-    number2Display.textContent = fixDecimals(number2);
-    number1Display.textContent = fixDecimals(number1);
+    number2Display.textContent = number2;
+    number1Display.textContent = number1;
 }
 
 function deleteNumber(){
@@ -118,7 +118,7 @@ function clearAll(){
 function bringResult(){
     if (!result) return;
     if(!number1){
-        number1 = result;
+        number1 = fixDecimals(result);
         number1Display.textContent = fixDecimals(number1);
     } else {
         number2 = result;
