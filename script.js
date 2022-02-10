@@ -64,6 +64,8 @@ function clickOperator(e){
     } else if(number1 && number2) {
         console.log("number1 & number2 exist scenaryo");
         calculator();
+        number1 = result;
+        number1Display.textContent = fixDecimals(number1);
         currentOperator = e.target.dataset.key || e.key;
         if(currentOperator=="*"){
             operatorSymbol="x";
