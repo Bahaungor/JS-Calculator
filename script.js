@@ -147,7 +147,7 @@ function keyboardConfig(e){
 
     if(e.key == "End") clearAll();
 
-    if(e.key == "Delete") deleteNumber();
+    if(e.key == "Delete" || e.key == "Backspace") deleteNumber();
 
     if(e.key == ",") addDecimals();
 
