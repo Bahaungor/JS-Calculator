@@ -108,9 +108,11 @@ function calculator(){
 deleteButton.addEventListener("click", deleteNumber)
 function deleteNumber(){
     if(number2){
+        number2 = number2+"";
         number2 = number2.slice(0, -1);
         number2Display.textContent = number2;
     } else {
+        number1 = number1+"";
         number1 = number1.slice(0, -1);
         number1Display.textContent = number1;
     }
